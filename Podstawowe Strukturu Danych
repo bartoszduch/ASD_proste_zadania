@@ -1,0 +1,54 @@
+#Część 1, wieża Hanoi, rekurencyjnie
+
+import time
+
+
+def Hanoi(n, sour, dest, buff):
+    if n == 1:
+        print(sour, "->", dest)
+    else:
+        Hanoi(n-1, sour, buff, dest)
+        print(sour, "->", dest)
+        Hanoi(n-1, buff, dest, sour)
+Hanoi(3,"A","B","C")
+
+
+
+
+def czas(N):
+    start_time = time.time()
+    Hanoi(N, "A","B","C")
+    end_time = time.time()
+    czas=end_time - start_time
+    print(czas)
+
+czas(21)
+
+
+#Część 2, wieża Hanoi iteracyjnie
+
+import time
+
+def Hanoi(n: int, start: str, end: str, aux: str) -> None:
+    stack = [(n, start, end, aux)]
+    while stack:
+        n, start, end, aux = stack.pop()
+        if n == 1:
+            print(f"{start} -> {end}")
+        else:
+            stack.append((n - 1, aux, end, start))
+            stack.append((1, start, end, aux))
+            stack.append((n - 1, start, aux, end))
+
+
+Hanoi(3, "A", "B", "C")
+
+
+def czas(N):
+    start_time = time.time()
+    Hanoi(N, "A","B","C")
+    end_time = time.time()
+    czas=end_time - start_time
+    print(czas)
+
+czas(21)
