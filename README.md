@@ -1,1 +1,1 @@
-Algorithms and data structures - solutions to simple problems
+Algorithms and data structures - solutions to simple problems.
